@@ -41,7 +41,8 @@ public class FrustrationOnTeamworkingEventController {
 
     @Autowired(required = false)
     public FrustrationOnTeamworkingEventController(FrustrationOnTeamworkingEventConsumerListener eventConsumerListener,
-                                                   ClientFactProvider clientFactProvider, FrustrationOnTeamworkingEventSender frustrationOnTeamworkingEventSender,
+                                                   ClientFactProvider clientFactProvider,
+                                                   FrustrationOnTeamworkingEventSender frustrationOnTeamworkingEventSender,
                                                    @Value("${spring.kafka.frustration.topic:}") String subscribedTopic) {
         this.clientFactProvider = clientFactProvider;
         this.subscribedTopic = subscribedTopic;
@@ -90,7 +91,7 @@ public class FrustrationOnTeamworkingEventController {
 
 
     protected void populateOrganizationForms(DroolsForm droolsForm, String organization) throws JsonProcessingException {
-        DroolsSubmittedForm organizationSubmittedForm = ((DroolsSubmittedForm) droolsForm.getDroolsSubmittedForm());
+        final DroolsSubmittedForm organizationSubmittedForm = ((DroolsSubmittedForm) droolsForm.getDroolsSubmittedForm());
         organizationSubmittedForm.setFormVariables(new HashMap<>());
 
         //Gets all forms from the organization.
@@ -105,7 +106,8 @@ public class FrustrationOnTeamworkingEventController {
 
         for (FactDTO frustrationEvent : frustrationFacts) {
             //Read the variables and populate a submittedForm
-            final DroolsSubmittedForm organizationFrustrationForm = ObjectMapperFactory.getObjectMapper().readValue(frustrationEvent.getValue(), DroolsSubmittedForm.class);
+            final DroolsSubmittedForm organizationFrustrationForm = ObjectMapperFactory.getObjectMapper().readValue(frustrationEvent.getValue(),
+                    DroolsSubmittedForm.class);
 
             organizationFrustrationForm.getFormVariables().forEach((element, variableValues) -> {
                 organizationSubmittedForm.getFormVariables().computeIfAbsent(element, k -> new HashMap<>());

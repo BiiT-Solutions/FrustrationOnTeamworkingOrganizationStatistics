@@ -27,7 +27,8 @@ public class FrustrationOnTeamworkingEventSender {
     }
 
     @Autowired(required = false)
-    public FrustrationOnTeamworkingEventSender(KafkaEventTemplate kafkaTemplate, FrustrationOnTeamworkingEventConverter frustrationOnTeamworkingEventConverter) {
+    public FrustrationOnTeamworkingEventSender(KafkaEventTemplate kafkaTemplate,
+                                               FrustrationOnTeamworkingEventConverter frustrationOnTeamworkingEventConverter) {
         this.kafkaTemplate = kafkaTemplate;
         this.frustrationOnTeamworkingEventConverter = frustrationOnTeamworkingEventConverter;
     }
