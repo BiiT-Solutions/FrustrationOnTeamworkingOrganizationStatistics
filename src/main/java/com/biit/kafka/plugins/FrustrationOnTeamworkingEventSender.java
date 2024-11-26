@@ -14,7 +14,7 @@ import java.util.UUID;
 @ConditionalOnExpression("${spring.kafka.enabled:false}")
 public class FrustrationOnTeamworkingEventSender {
 
-    @Value("${spring.kafka.nca.send.topic:}")
+    @Value("${spring.kafka.frustration.send.topic:}")
     private String sendTopic;
 
     private final KafkaEventTemplate kafkaTemplate;
