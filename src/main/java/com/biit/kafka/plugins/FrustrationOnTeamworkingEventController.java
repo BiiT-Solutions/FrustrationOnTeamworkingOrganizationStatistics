@@ -114,15 +114,19 @@ public class FrustrationOnTeamworkingEventController {
                     DroolsSubmittedForm.class);
 
             organizationFrustrationForm.getFormVariables().forEach((element, variableValues) -> {
-                organizationSubmittedForm.getFormVariables().computeIfAbsent(element, k -> new HashMap<>());
+                //Correct form name.
+                final String elmentCorrected = element.replace(FORM_LABEL, FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
+                organizationSubmittedForm.getFormVariables().computeIfAbsent(elmentCorrected, k -> new HashMap<>());
                 variableValues.forEach((variable, value) -> {
-                    organizationSubmittedForm.getFormVariables().get(element).computeIfAbsent(variable, v -> 0);
+                    organizationSubmittedForm.getFormVariables().get(elmentCorrected).computeIfAbsent(variable, v -> 0);
                     //Increment Value
-                    organizationSubmittedForm.getFormVariables().get(element).put(variable,
-                            Double.parseDouble(organizationSubmittedForm.getFormVariables().get(element).get(variable).toString()) + (Double) value);
+                    organizationSubmittedForm.getFormVariables().get(elmentCorrected).put(variable,
+                            (Double.parseDouble(organizationSubmittedForm.getFormVariables().get(elmentCorrected).get(variable).toString()) + (Double) value)
+                                    / frustrationFacts.size());
                 });
             });
         }
+
         organizationSubmittedForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
         organizationSubmittedForm.setOrganization(organization);
     }
