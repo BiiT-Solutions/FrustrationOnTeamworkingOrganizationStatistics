@@ -1,0 +1,105 @@
+{
+  "class" : "com.biit.drools.form.DroolsSubmittedForm",
+  "tag" : "The 5 Frustrations on Teamworking",
+  "children" : [ {
+    "class" : "com.biit.drools.form.DroolsSubmittedCategory",
+    "tag" : "frustrations",
+    "text" : "frustrations",
+    "children" : [ {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "passionated",
+      "text" : "passionated",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "communication",
+      "text" : "communication",
+      "children" : [ ],
+      "answers" : [ "sometimes" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "inter_knowledge",
+      "text" : "inter_knowledge",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "apologize",
+      "text" : "apologize",
+      "children" : [ ],
+      "answers" : [ "sometimes" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "sacrifices",
+      "text" : "sacrifices",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "weakness",
+      "text" : "weakness",
+      "children" : [ ],
+      "answers" : [ "sometimes" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "meetings_fascinating",
+      "text" : "meetings_fascinating",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "support_descissions",
+      "text" : "support_descissions",
+      "children" : [ ],
+      "answers" : [ "sometimes" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "failing_goals",
+      "text" : "failing_goals",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "meetings_constructive",
+      "text" : "meetings_constructive",
+      "children" : [ ],
+      "answers" : [ "sometimes" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "concerted_about_letting_down",
+      "text" : "concerted_about_letting_down",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "tal_each_other",
+      "text" : "tal_each_other",
+      "children" : [ ],
+      "answers" : [ "sometimes" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "discussions_with_solutions",
+      "text" : "discussions_with_solutions",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "challenges_on_plans",
+      "text" : "challenges_on_plans",
+      "children" : [ ],
+      "answers" : [ "sometimes" ]
+    }, {
+      "class" : "com.biit.drools.form.DroolsSubmittedQuestion",
+      "tag" : "modest_about_recognition",
+      "text" : "modest_about_recognition",
+      "children" : [ ],
+      "answers" : [ "generally" ]
+    } ]
+  } ],
+  "applicationName" : "",
+  "submittedBy" : "admin@test.com",
+  "submittedAt" : "26-11-2024 08:23:18",
+  "version" : 1,
+  "formVariables" : "{\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='meetings_fascinating']\" : {\n    \"Score\" : 3.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='inter_knowledge']\" : {\n    \"Score\" : 3.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='concerted_about_letting_down']\" : {\n    \"Score\" : 3.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='support_descissions']\" : {\n    \"Score\" : 2.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='meetings_constructive']\" : {\n    \"Score\" : 2.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='tal_each_other']\" : {\n    \"Score\" : 2.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='discussions_with_solutions']\" : {\n    \"Score\" : 3.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='challenges_on_plans']\" : {\n    \"Score\" : 2.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='communication']\" : {\n    \"Score\" : 2.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='modest_about_recognition']\" : {\n    \"Score\" : 3.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']\" : {\n    \"Frustration3\" : 0.8888888888888888,\n    \"Frustration4\" : 0.7777777777777778,\n    \"Frustration1\" : 0.6666666666666666,\n    \"Frustration2\" : 0.8888888888888888,\n    \"Frustration5\" : 1.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='weakness']\" : {\n    \"Score\" : 2.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='passionated']\" : {\n    \"Score\" : 3.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='failing_goals']\" : {\n    \"Score\" : 3.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='apologize']\" : {\n    \"Score\" : 2.0\n  },\n  \"/DroolsSubmittedForm[@label='The 5 Frustrations on Teamworking']/children/DroolsSubmittedCategory[@name='frustrations']/children/DroolsSubmittedQuestion[@name='sacrifices']\" : {\n    \"Score\" : 3.0\n  }\n}"
+}
