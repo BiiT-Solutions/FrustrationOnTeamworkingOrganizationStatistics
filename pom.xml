@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.biit.nca</groupId>
-    <artifactId>nca-organization-statistics</artifactId>
-    <version>0.1.10-SNAPSHOT</version>
+    <groupId>com.biit.frustration</groupId>
+    <artifactId>frustration-teamworking-organization-statistics</artifactId>
+    <version>0.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>NCA Organizatin Statistics Generator</name>
-    <description>Generates the infographic input from multiple NCA Kafka events</description>
+    <name>Frustration on Teamworking Organization Statistics Generator</name>
+    <description>Generates the infographic input from multiple FoT Kafka events</description>
 
     <parent>
         <groupId>com.biit</groupId>
@@ -30,9 +30,9 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git.biit-solutions.com:Java/NcaOrganizationStatistics.git</connection>
-        <developerConnection>scm:git:git.biit-solutions.com:Java/NcaOrganizationStatistics.git</developerConnection>
-        <tag>nca-organization-statistics</tag>
+        <connection>scm:git:git.biit-solutions.com:Java/FrustrationOnTeamworkingOrganizationStatistics.git</connection>
+        <developerConnection>scm:git@git.biit-solutions.com:Java/FrustrationOnTeamworkingOrganizationStatistics.git</developerConnection>
+        <tag>frustration-teamworking-organization-statistics</tag>
     </scm>
 
     <dependencies>
