@@ -52,14 +52,15 @@ public class FrustrationOnTeamworkingEventController {
             eventConsumerListener.addListener((event, offset, groupId, key, partition, topic, timeStamp) -> {
                 try {
                     if (Objects.equals(topic, subscribedTopic) && event != null && event.getCustomProperty(EventCustomProperties.FACT_TYPE) != null
-                            && Objects.equals(event.getCustomProperty(EventCustomProperties.FACT_TYPE), DROOLS_RESULT_EVENT_TYPE) &&
-                            Objects.equals(event.getTag(), FORM_LABEL)) {
+                            && Objects.equals(event.getCustomProperty(EventCustomProperties.FACT_TYPE), DROOLS_RESULT_EVENT_TYPE)
+                            && Objects.equals(event.getTag(), FORM_LABEL)) {
                         FrustrationOnTeamworkingEventsLogger.debug(this.getClass(), "Received event '{}' on topic '{}', key '{}', partition '{}' at '{}'",
                                 event, topic, groupId, key, partition, LocalDateTime.ofInstant(Instant.ofEpochMilli(timeStamp),
                                         TimeZone.getDefault().toZoneId()));
                         final DroolsForm droolsForm = processEvent(event);
                         if (droolsForm != null) {
-                            frustrationOnTeamworkingEventSender.sendResultEvents(droolsForm, event.getCreatedBy(), event.getOrganization(), event.getSessionId());
+                            frustrationOnTeamworkingEventSender.sendResultEvents(droolsForm, event.getCreatedBy(),
+                                    event.getOrganization(), event.getSessionId());
                         }
                     } else {
                         FrustrationOnTeamworkingEventsLogger.debug(this.getClass(), "Ignoring event topic '" + topic + "'.");
