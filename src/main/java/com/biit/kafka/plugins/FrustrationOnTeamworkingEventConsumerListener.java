@@ -16,7 +16,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 public class FrustrationOnTeamworkingEventConsumerListener extends EventListener {
 
     public FrustrationOnTeamworkingEventConsumerListener() {
-        // Event is send from this own application.
+        // Event is sent0 from this own application.
         super(false);
         FrustrationOnTeamworkingEventsLogger.info(this.getClass(), "Frustration On Teamworking Organization Statistics Plugin loaded!");
     }
