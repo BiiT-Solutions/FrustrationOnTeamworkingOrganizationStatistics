@@ -81,6 +81,7 @@ public class FrustrationOnTeamworkingEventController {
                 final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
                 droolsForm.setSubmittedBy(event.getCreatedBy());
                 droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
+                droolsForm.setLabel(FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
                 populateOrganizationForms(droolsForm,
                         event.getOrganization() != null ? event.getOrganization() : event.getCustomProperty(EventCustomProperties.ORGANIZATION));
                 return droolsForm;
@@ -115,13 +116,13 @@ public class FrustrationOnTeamworkingEventController {
 
             organizationFrustrationForm.getFormVariables().forEach((element, variableValues) -> {
                 //Correct form name.
-                final String elmentCorrected = element.replace(FORM_LABEL, FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
-                organizationSubmittedForm.getFormVariables().computeIfAbsent(elmentCorrected, k -> new HashMap<>());
+                final String elementCorrected = element.replace(FORM_LABEL, FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
+                organizationSubmittedForm.getFormVariables().computeIfAbsent(elementCorrected, k -> new HashMap<>());
                 variableValues.forEach((variable, value) -> {
-                    organizationSubmittedForm.getFormVariables().get(elmentCorrected).computeIfAbsent(variable, v -> 0);
+                    organizationSubmittedForm.getFormVariables().get(elementCorrected).computeIfAbsent(variable, v -> 0);
                     //Increment Value
-                    organizationSubmittedForm.getFormVariables().get(elmentCorrected).put(variable,
-                            (Double.parseDouble(organizationSubmittedForm.getFormVariables().get(elmentCorrected).get(variable).toString()) + (Double) value)
+                    organizationSubmittedForm.getFormVariables().get(elementCorrected).put(variable,
+                            (Double.parseDouble(organizationSubmittedForm.getFormVariables().get(elementCorrected).get(variable).toString()) + (Double) value)
                                     / frustrationFacts.size());
                 });
             });
