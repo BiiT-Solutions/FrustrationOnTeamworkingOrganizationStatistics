@@ -79,7 +79,6 @@ public class FrustrationOnTeamworkingEventController {
             //Is it a new form??
             if (Objects.equals(droolsSubmittedForm.getTag(), FORM_LABEL)) {
                 final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
-                droolsForm.setSubmittedBy(event.getCreatedBy());
                 droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
                 droolsForm.setLabel(FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
                 populateOrganizationForms(droolsForm,
@@ -122,8 +121,8 @@ public class FrustrationOnTeamworkingEventController {
                     organizationSubmittedForm.getFormVariables().get(elementCorrected).computeIfAbsent(variable, v -> 0);
                     //Increment Value
                     organizationSubmittedForm.getFormVariables().get(elementCorrected).put(variable,
-                            (Double.parseDouble(organizationSubmittedForm.getFormVariables().get(elementCorrected).get(variable).toString()) + (Double) value)
-                                    / frustrationFacts.size());
+                            Double.parseDouble(organizationSubmittedForm.getFormVariables().get(elementCorrected).get(variable).toString())
+                                    + ((Double) value) / frustrationFacts.size());
                 });
             });
         }
