@@ -55,8 +55,8 @@ public class FrustrationOnTeamworkingEventController {
     public FrustrationOnTeamworkingEventController(FrustrationOnTeamworkingEventConsumerListener eventConsumerListener,
                                                    ClientFactProvider clientFactProvider,
                                                    FrustrationOnTeamworkingEventSender frustrationOnTeamworkingEventSender,
-                                                   UserManagerClient userManagerClient, TeamManagerClient teamManagerClient,
-                                                   @Value("${spring.kafka.frustration.topic:}") String subscribedTopic) {
+                                                   @Value("${spring.kafka.frustration.topic:}") String subscribedTopic,
+                                                   UserManagerClient userManagerClient, TeamManagerClient teamManagerClient) {
         this.clientFactProvider = clientFactProvider;
         this.subscribedTopic = subscribedTopic;
         this.userManagerClient = userManagerClient;
@@ -81,8 +81,8 @@ public class FrustrationOnTeamworkingEventController {
 
                         try {
                             //Gets the team from the user who has sent the event.
-                            final IAuthenticatedUser user = userManagerClient.findByUsername(event.getCreatedBy()).orElseThrow(() ->
-                                    new UserDoesNotExistException("No user with username '" + event.getCreatedBy() + "'."));
+                            final IAuthenticatedUser user = userManagerClient.findByUsername(event.getCreatedBy()).orElseThrow(
+                                    () -> new UserDoesNotExistException("No user with username '" + event.getCreatedBy() + "'."));
 
                             final Collection<TeamDTO> teams = teamManagerClient.findByUser(UUID.fromString(user.getUID()));
                             if (teams == null || teams.isEmpty()) {
@@ -92,8 +92,8 @@ public class FrustrationOnTeamworkingEventController {
                             final TeamDTO chosenTeam = teams.iterator().next();
                             final DroolsForm teamDroolsForm = processTeamEvent(event, chosenTeam);
                             if (teamDroolsForm != null) {
-                                frustrationOnTeamworkingEventSender.sendResultEvents(teamDroolsForm, event.getCreatedBy(),
-                                        event.getOrganization(), event.getSessionId(), chosenTeam.getName());
+                                frustrationOnTeamworkingEventSender.sendResultEvents(teamDroolsForm, event.getCreatedBy(), event.getOrganization(),
+                                        event.getSessionId(), chosenTeam.getName());
                             }
                         } catch (Exception e) {
                             FrustrationOnTeamworkingEventsLogger.errorMessage(this.getClass(), e);
@@ -117,8 +117,8 @@ public class FrustrationOnTeamworkingEventController {
                 final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
                 droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_ORGANIZATION_OUTPUT);
                 droolsForm.setLabel(FrustrationOnTeamworkingEventConverter.FORM_ORGANIZATION_OUTPUT);
-                populateOrganizationForms(droolsForm,
-                        event.getOrganization() != null ? event.getOrganization() : event.getCustomProperty(EventCustomProperties.ORGANIZATION));
+                populateOrganizationForms(droolsForm, event.getOrganization() != null ? event.getOrganization()
+                        : event.getCustomProperty(EventCustomProperties.ORGANIZATION));
                 return droolsForm;
             }
         } catch (JsonProcessingException e) {

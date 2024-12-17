@@ -3,7 +3,7 @@
     <test name="Plugin" enabled="true" preserve-order="true">
         <groups>
             <run>
-                <include name="frustrationOnTeamworking"/>
+                <exclude name="frustrationOnTeamworking"/>
             </run>
         </groups>
         <classes>

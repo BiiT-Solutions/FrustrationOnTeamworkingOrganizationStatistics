@@ -39,18 +39,22 @@
         <dependency>
             <groupId>com.biit</groupId>
             <artifactId>form-structure-drools</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.biit</groupId>
             <artifactId>kafka-client</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.biit</groupId>
             <artifactId>fact-manager-rest-client</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.biit</groupId>
             <artifactId>user-manager-system-rest-client</artifactId>
+            <scope>provided</scope>
         </dependency>
         <!-- Testing -->
         <dependency>
@@ -97,8 +101,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java-latest.jdk.version}</source>
-                    <target>${java-latest.jdk.version}</target>
+                    <source>${java.jdk.version}</source>
+                    <target>${java.jdk.version}</target>
                 </configuration>
             </plugin>
             <plugin>
