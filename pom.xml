@@ -56,7 +56,6 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>${org.testng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -98,8 +97,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java.jdk.version}</source>
-                    <target>${java.jdk.version}</target>
+                    <source>${java-latest.jdk.version}</source>
+                    <target>${java-latest.jdk.version}</target>
                 </configuration>
             </plugin>
             <plugin>
