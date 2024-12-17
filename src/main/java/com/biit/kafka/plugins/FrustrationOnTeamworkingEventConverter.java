@@ -15,7 +15,8 @@ import java.util.UUID;
 public class FrustrationOnTeamworkingEventConverter {
 
     private static final String DROOLS_RESULT_EVENT_TYPE = "DroolsResultForm";
-    public static final String FORM_OUTPUT = "Frustration On Teamworking Organization";
+    public static final String FORM_ORGANIZATION_OUTPUT = "Frustration On Teamworking Organization";
+    public static final String FORM_TEAM_OUTPUT = "Frustration On Teamworking Team";
 
     @Value("${spring.application.name:#{null}}")
     private String applicationName;
@@ -28,9 +29,9 @@ public class FrustrationOnTeamworkingEventConverter {
         event.setContentType(MediaType.APPLICATION_ATOM_XML_VALUE);
         event.setCreatedAt(LocalDateTime.now());
         event.setReplyTo(applicationName);
-        event.setTag(FORM_OUTPUT);
+        event.setTag(FORM_ORGANIZATION_OUTPUT);
         event.setCustomProperty(EventCustomProperties.FACT_TYPE, DROOLS_RESULT_EVENT_TYPE);
-        event.setCustomProperty(EventCustomProperties.SOURCE_TAG, FORM_OUTPUT);
+        event.setCustomProperty(EventCustomProperties.SOURCE_TAG, FORM_ORGANIZATION_OUTPUT);
         return event;
     }
 }

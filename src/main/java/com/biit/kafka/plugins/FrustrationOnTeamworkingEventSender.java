@@ -33,13 +33,14 @@ public class FrustrationOnTeamworkingEventSender {
         this.frustrationOnTeamworkingEventConverter = frustrationOnTeamworkingEventConverter;
     }
 
-    public void sendResultEvents(DroolsForm response, String executedBy, String organization, UUID sessionId) {
+    public void sendResultEvents(DroolsForm response, String executedBy, String organization, UUID sessionId, String unit) {
         if (kafkaTemplate != null && sendTopic != null && !sendTopic.isEmpty() && response != null) {
             FrustrationOnTeamworkingEventsLogger.debug(this.getClass().getName(), "Preparing for sending events for '{}' ...", response.getName());
             //Send the complete form as an event.
             final Event event = frustrationOnTeamworkingEventConverter.getEvent(response, executedBy);
             event.setSessionId(sessionId);
             event.setOrganization(organization);
+            event.setUnit(unit);
             kafkaTemplate.send(sendTopic, event);
             FrustrationOnTeamworkingEventsLogger.debug(this.getClass().getName(), "Event with results from '{}' send!", response.getName());
         }

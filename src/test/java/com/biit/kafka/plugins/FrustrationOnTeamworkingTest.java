@@ -37,7 +37,7 @@ public class FrustrationOnTeamworkingTest extends AbstractTestNGSpringContextTes
 
         final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
         droolsForm.setSubmittedBy(droolsSubmittedForm.getSubmittedBy());
-        droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_OUTPUT);
+        droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_ORGANIZATION_OUTPUT);
 
 
         frustrationOnTeamworkingEventController.populateOrganizationForms(droolsForm, ORGANIZATION);
