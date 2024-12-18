@@ -21,15 +21,16 @@ public class FrustrationOnTeamworkingEventConverter {
     @Value("${spring.application.name:#{null}}")
     private String applicationName;
 
-    public Event getEvent(DroolsForm droolsForm, String createdBy) {
+    public Event getEvent(DroolsForm droolsForm, String createdBy, UUID sessionId) {
         final Event event = new Event(droolsForm.getDroolsSubmittedForm());
         event.setCreatedBy(createdBy);
         event.setMessageId(UUID.randomUUID());
         event.setSubject(EventSubject.CREATED.toString());
-        event.setContentType(MediaType.APPLICATION_ATOM_XML_VALUE);
+        event.setContentType(MediaType.APPLICATION_JSON_VALUE);
         event.setCreatedAt(LocalDateTime.now());
         event.setReplyTo(applicationName);
-        event.setTag(FORM_ORGANIZATION_OUTPUT);
+        event.setSessionId(sessionId);
+        event.setTag(droolsForm.getTag());
         event.setCustomProperty(EventCustomProperties.FACT_TYPE, DROOLS_RESULT_EVENT_TYPE);
         event.setCustomProperty(EventCustomProperties.SOURCE_TAG, FORM_ORGANIZATION_OUTPUT);
         return event;

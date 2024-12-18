@@ -37,8 +37,7 @@ public class FrustrationOnTeamworkingEventSender {
         if (kafkaTemplate != null && sendTopic != null && !sendTopic.isEmpty() && response != null) {
             FrustrationOnTeamworkingEventsLogger.debug(this.getClass().getName(), "Preparing for sending events for '{}' ...", response.getName());
             //Send the complete form as an event.
-            final Event event = frustrationOnTeamworkingEventConverter.getEvent(response, executedBy);
-            event.setSessionId(sessionId);
+            final Event event = frustrationOnTeamworkingEventConverter.getEvent(response, executedBy, sessionId);
             event.setOrganization(organization);
             event.setUnit(unit);
             kafkaTemplate.send(sendTopic, event);

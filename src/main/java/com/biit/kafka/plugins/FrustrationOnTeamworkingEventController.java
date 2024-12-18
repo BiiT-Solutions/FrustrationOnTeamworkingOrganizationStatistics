@@ -92,7 +92,8 @@ public class FrustrationOnTeamworkingEventController {
                             final TeamDTO chosenTeam = teams.iterator().next();
                             final DroolsForm teamDroolsForm = processTeamEvent(event, chosenTeam);
                             if (teamDroolsForm != null) {
-                                frustrationOnTeamworkingEventSender.sendResultEvents(teamDroolsForm, event.getCreatedBy(), event.getOrganization(),
+                                frustrationOnTeamworkingEventSender.sendResultEvents(teamDroolsForm, event.getCreatedBy(),
+                                        chosenTeam.getOrganization() != null ? chosenTeam.getOrganization().getName() : event.getOrganization(),
                                         event.getSessionId(), chosenTeam.getName());
                             }
                         } catch (Exception e) {
@@ -117,6 +118,8 @@ public class FrustrationOnTeamworkingEventController {
                 final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
                 droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_ORGANIZATION_OUTPUT);
                 droolsForm.setLabel(FrustrationOnTeamworkingEventConverter.FORM_ORGANIZATION_OUTPUT);
+                droolsForm.setSubmittedBy(event.getCreatedBy());
+                droolsForm.setSubmittedAt(event.getCreatedAt());
                 populateOrganizationForms(droolsForm, event.getOrganization() != null ? event.getOrganization()
                         : event.getCustomProperty(EventCustomProperties.ORGANIZATION));
                 return droolsForm;
@@ -168,6 +171,8 @@ public class FrustrationOnTeamworkingEventController {
                 final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
                 droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_TEAM_OUTPUT);
                 droolsForm.setLabel(FrustrationOnTeamworkingEventConverter.FORM_TEAM_OUTPUT);
+                droolsForm.setSubmittedBy(event.getCreatedBy());
+                droolsForm.setSubmittedAt(event.getCreatedAt());
                 populateTeamForms(droolsForm, team);
                 return droolsForm;
             }
@@ -194,7 +199,7 @@ public class FrustrationOnTeamworkingEventController {
         filter.putIfAbsent(SearchParameters.GROUP, subscribedTopic);
         filter.putIfAbsent(SearchParameters.ELEMENT_NAME, FORM_LABEL);
         filter.putIfAbsent(SearchParameters.FACT_TYPE, DROOLS_RESULT_EVENT_TYPE);
-        filter.putIfAbsent(SearchParameters.CREATED_BY, members.stream().map(IAuthenticatedUser::getUsername).toList().toArray());
+        filter.putIfAbsent(SearchParameters.CREATED_BY, members.stream().map(IAuthenticatedUser::getUsername).toList());
         final List<FactDTO> frustrationFacts = clientFactProvider.get(filter);
 
         for (FactDTO frustrationEvent : frustrationFacts) {
@@ -222,7 +227,7 @@ public class FrustrationOnTeamworkingEventController {
             //Increment Value
             teamSubmittedForm.getFormVariables().get(elementCorrected).put(variable,
                     Double.parseDouble(teamSubmittedForm.getFormVariables().get(elementCorrected).get(variable).toString())
-                            + ((Double) value) / frustrationFacts.size());
+                            + (((Double) value) / frustrationFacts.size()));
         });
     }
 }
