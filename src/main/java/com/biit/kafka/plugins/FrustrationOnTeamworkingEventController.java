@@ -114,7 +114,7 @@ public class FrustrationOnTeamworkingEventController {
         try {
             final DroolsSubmittedForm droolsSubmittedForm = ObjectMapperFactory.getObjectMapper().readValue(event.getPayload(), DroolsSubmittedForm.class);
             //Is it a new form??
-            if (Objects.equals(droolsSubmittedForm.getTag(), FORM_LABEL)) {
+            if (droolsSubmittedForm != null && Objects.equals(droolsSubmittedForm.getTag(), FORM_LABEL)) {
                 final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
                 droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_ORGANIZATION_OUTPUT);
                 droolsForm.setLabel(FrustrationOnTeamworkingEventConverter.FORM_ORGANIZATION_OUTPUT);
@@ -134,6 +134,9 @@ public class FrustrationOnTeamworkingEventController {
 
 
     protected void populateOrganizationForms(DroolsForm droolsForm, String organization) throws JsonProcessingException {
+        if (droolsForm == null) {
+            return;
+        }
         final DroolsSubmittedForm organizationSubmittedForm = ((DroolsSubmittedForm) droolsForm.getDroolsSubmittedForm());
         organizationSubmittedForm.setFormVariables(new HashMap<>());
 
@@ -167,7 +170,7 @@ public class FrustrationOnTeamworkingEventController {
         try {
             final DroolsSubmittedForm droolsSubmittedForm = ObjectMapperFactory.getObjectMapper().readValue(event.getPayload(), DroolsSubmittedForm.class);
             //Is it a new form??
-            if (Objects.equals(droolsSubmittedForm.getTag(), FORM_LABEL)) {
+            if (droolsSubmittedForm != null && Objects.equals(droolsSubmittedForm.getTag(), FORM_LABEL)) {
                 final DroolsForm droolsForm = DroolsFormProvider.createStructure(droolsSubmittedForm);
                 droolsForm.setTag(FrustrationOnTeamworkingEventConverter.FORM_TEAM_OUTPUT);
                 droolsForm.setLabel(FrustrationOnTeamworkingEventConverter.FORM_TEAM_OUTPUT);
