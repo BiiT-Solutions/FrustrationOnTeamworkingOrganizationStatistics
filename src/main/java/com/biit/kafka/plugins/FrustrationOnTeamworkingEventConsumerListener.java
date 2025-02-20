@@ -17,7 +17,7 @@ public class FrustrationOnTeamworkingEventConsumerListener extends EventListener
 
     public FrustrationOnTeamworkingEventConsumerListener() {
         // Event is sent0 from this own application.
-        super(false);
+        super();
         FrustrationOnTeamworkingEventsLogger.info(this.getClass(), "Frustration On Teamworking Organization Statistics Plugin loaded!");
     }
 
