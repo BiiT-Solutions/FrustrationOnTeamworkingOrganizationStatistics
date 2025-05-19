@@ -9,6 +9,7 @@ import com.biit.factmanager.dto.FactDTO;
 import com.biit.kafka.config.ObjectMapperFactory;
 import com.biit.kafka.events.Event;
 import com.biit.kafka.events.EventCustomProperties;
+import com.biit.rest.exceptions.NotFoundException;
 import com.biit.server.security.IAuthenticatedUser;
 import com.biit.usermanager.client.providers.TeamManagerClient;
 import com.biit.usermanager.client.providers.UserManagerClient;
@@ -75,7 +76,7 @@ public class FrustrationOnTeamworkingEventController {
                         final DroolsForm organizationDroolsForm = processOrganizationEvent(event);
                         if (organizationDroolsForm != null) {
                             frustrationOnTeamworkingEventSender.sendResultEvents(organizationDroolsForm, event.getCreatedBy(),
-                                    event.getOrganization(), event.getSessionId(), null);
+                                    event.getOrganization(), event.getSessionId(), event.getUnit());
                         }
 
 
@@ -84,9 +85,9 @@ public class FrustrationOnTeamworkingEventController {
                             final IAuthenticatedUser user = userManagerClient.findByUsername(event.getCreatedBy()).orElseThrow(
                                     () -> new UserDoesNotExistException("No user with username '" + event.getCreatedBy() + "'."));
 
-                            final Collection<TeamDTO> teams = teamManagerClient.findByUser(UUID.fromString(user.getUID()));
+                            final Collection<TeamDTO> teams = this.teamManagerClient.findByUser(UUID.fromString(user.getUID()));
                             if (teams == null || teams.isEmpty()) {
-                                throw new Exception("No teams found for user '" + user.getUsername() + "'");
+                                throw new NotFoundException("No teams found for user '" + user.getUsername() + "'");
                             }
                             //We assume that is the first team.
                             final TeamDTO chosenTeam = teams.iterator().next();
