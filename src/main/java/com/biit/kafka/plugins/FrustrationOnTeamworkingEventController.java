@@ -10,10 +10,11 @@ import com.biit.kafka.config.ObjectMapperFactory;
 import com.biit.kafka.events.Event;
 import com.biit.kafka.events.EventCustomProperties;
 import com.biit.rest.exceptions.NotFoundException;
-import com.biit.server.security.IAuthenticatedUser;
+import com.biit.server.security.model.IAuthenticatedUser;
 import com.biit.usermanager.client.providers.TeamManagerClient;
 import com.biit.usermanager.client.providers.UserManagerClient;
 import com.biit.usermanager.dto.TeamDTO;
+import com.biit.usermanager.dto.UserDTO;
 import com.biit.usermanager.security.exceptions.UserDoesNotExistException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -193,7 +194,7 @@ public class FrustrationOnTeamworkingEventController {
         final DroolsSubmittedForm teamSubmittedForm = ((DroolsSubmittedForm) droolsForm.getDroolsSubmittedForm());
         teamSubmittedForm.setFormVariables(new HashMap<>());
 
-        final Collection<IAuthenticatedUser> members = userManagerClient.findByTeam(team.getId());
+        final Collection<UserDTO> members = userManagerClient.findByTeam(team.getId());
 
         //Gets all forms from the team.
         final Map<SearchParameters, Object> filter = new HashMap<>();
