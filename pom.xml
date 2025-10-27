@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.biit-solutions.frustration</groupId>
     <artifactId>frustration-teamworking-organization-statistics</artifactId>
-    <version>0.2.59</version>
+    <version>0.2.60-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Frustration on Teamworking Organization Statistics Generator</name>
     <description>Generates the infographic input from multiple FoT Kafka events</description>
@@ -46,7 +46,7 @@
         <connection>scm:git:ssh://git@github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</developerConnection>
         <url>https://github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</url>
-        <tag>frustration-teamworking-organization-statistics-0.2.59</tag>
+        <tag>frustration-teamworking-organization-statistics</tag>
     </scm>
 
     <dependencies>
