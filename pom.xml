@@ -16,22 +16,36 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
+    <licenses>
+        <license>
+            <name>GNU AGPL v3</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>BiiT Sourcing Solutions S.L.</name>
+        <url>https://www.biit-solutions.com/</url>
+    </organization>
+
     <distributionManagement>
         <repository>
             <id>central</id>
-            <name>libs-releases</name>
-            <url>https://artifactory.biit-solutions.com/artifactory/libs-release</url>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
-            <name>libs-snapshot</name>
-            <url>https://artifactory.biit-solutions.com/artifactory/libs-snapshot</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics</url>
         </snapshotRepository>
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git.biit-solutions.com:Java/FrustrationOnTeamworkingOrganizationStatistics.git</connection>
-        <developerConnection>scm:git:git.biit-solutions.com:Java/FrustrationOnTeamworkingOrganizationStatistics.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</developerConnection>
+        <url>https://github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</url>
         <tag>frustration-teamworking-organization-statistics</tag>
     </scm>
 
@@ -126,6 +140,31 @@
                         <checkModificationExclude>pom.xml</checkModificationExclude>
                     </checkModificationExcludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${license-maven-plugin.version}</version>
+                <configuration>
+                    <organizationName>BiiT Sourcing Solutions S.L.</organizationName>
+                    <inceptionYear>2022</inceptionYear>
+                    <licenseName>agpl_v3</licenseName>
+                    <excludes>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.xml</exclude>
+                        <exclude>**/*.xhtml</exclude>
+                        <exclude>**/*.json</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>first</id>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

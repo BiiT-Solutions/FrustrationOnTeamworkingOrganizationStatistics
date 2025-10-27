@@ -1,0 +1,50 @@
+name: Sonar Backend
+on:
+  push:
+    paths:
+      - 'backend/**'
+      - '.github/workflows/**'
+    branches:
+      - main
+      - master
+  pull_request:
+    paths:
+      - 'backend/**'
+      - '.github/workflows/**'
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+
+
+jobs:
+  build:
+    name: Build and Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Disabling shallow clones is recommended for improving the relevancy of reporting
+          fetch-depth: 0
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml -DskipTests
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@master
+        with:
+          args: >
+            -Dsonar.organization=biit-solutions
+            "-Dsonar.projectName=Frustration on Teamworking Organization Statistics"
+            -Dsonar.projectKey=BiiT-Solutions_FrustrationOnTeamworkingOrganizationStatistics
+            -Dsonar.java.binaries=.
+            -Dsonar.verbose=true
+            -Dsonar.test.exclusions=**/test/*
+            -Dsonar.exclusions=src/test
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
