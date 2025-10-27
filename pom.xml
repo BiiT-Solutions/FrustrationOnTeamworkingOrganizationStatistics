@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.biit-solutions.frustration</groupId>
     <artifactId>frustration-teamworking-organization-statistics</artifactId>
-    <version>0.2.61-SNAPSHOT</version>
+    <version>0.2.61</version>
     <packaging>jar</packaging>
     <name>Frustration on Teamworking Organization Statistics Generator</name>
     <description>Generates the infographic input from multiple FoT Kafka events</description>
@@ -46,7 +46,7 @@
         <connection>scm:git:ssh://git@github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</developerConnection>
         <url>https://github.com/BiiT-Solutions/FrustrationOnTeamworkingOrganizationStatistics.git</url>
-        <tag>frustration-teamworking-organization-statistics</tag>
+        <tag>frustration-teamworking-organization-statistics-0.2.61</tag>
     </scm>
 
     <dependencies>
@@ -147,7 +147,7 @@
                 <version>${license-maven-plugin.version}</version>
                 <configuration>
                     <organizationName>BiiT Sourcing Solutions S.L.</organizationName>
-                    <inceptionYear>2022</inceptionYear>
+                    <inceptionYear>2024</inceptionYear>
                     <licenseName>agpl_v3</licenseName>
                     <excludes>
                         <exclude>**/*.properties</exclude>
