@@ -4,7 +4,7 @@ package com.biit.kafka.plugins;
  * #%L
  * Frustration on Teamworking Organization Statistics Generator
  * %%
- * Copyright (C) 2022 - 2025 BiiT Sourcing Solutions S.L.
+ * Copyright (C) 2024 - 2025 BiiT Sourcing Solutions S.L.
  * %%
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
