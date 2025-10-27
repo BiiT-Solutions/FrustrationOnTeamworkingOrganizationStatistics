@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.biit.frustration</groupId>
+    <groupId>com.biit-solutions.frustration</groupId>
     <artifactId>frustration-teamworking-organization-statistics</artifactId>
     <version>0.2.59-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -10,7 +10,7 @@
     <description>Generates the infographic input from multiple FoT Kafka events</description>
 
     <parent>
-        <groupId>com.biit</groupId>
+        <groupId>com.biit-solutions</groupId>
         <artifactId>versions</artifactId>
         <version>[1.0,1.1)</version>
         <relativePath /> <!-- lookup parent from repository -->
@@ -37,22 +37,22 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.biit</groupId>
+            <groupId>com.biit-solutions</groupId>
             <artifactId>form-structure-drools</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.biit</groupId>
+            <groupId>com.biit-solutions.kafka</groupId>
             <artifactId>kafka-client</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.biit</groupId>
+            <groupId>com.biit-solutions</groupId>
             <artifactId>fact-manager-rest-client</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.biit</groupId>
+            <groupId>com.biit-solutions</groupId>
             <artifactId>user-manager-system-rest-client</artifactId>
             <scope>provided</scope>
         </dependency>
